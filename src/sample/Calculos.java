@@ -120,11 +120,9 @@ public class Calculos {
             }
         }
         //Add 0 as 2nd operand if "-" or "+" are unary
-        for(int i =0; i<entity.size(); i++){
-            if ( (entity.get(i).equals("-") || entity.get(i).equals("+")) && !isNumeric(entity.get(i-1)) ){
-                if(!entity.get(i-1).equals(")")) {
-                    entity.add(i, "0");
-                }
+        for(int i =1; i<entity.size(); i++){
+            if(shallAdd0(entity.get(i), entity.get(i-1))){
+                entity.add(i,"0");
             }
         }
         //Add "x" between number and "(" if needed
@@ -230,6 +228,15 @@ public class Calculos {
         if (count ==0){
             return true;
         } else return false;
+    }
+
+    private boolean shallAdd0(String str2, String str1){
+        if ( (str2.equals("-") || str2.equals("+")) && !isNumeric(str1)){
+            if (!str1.equals(")") && !str1.equals("!")){
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isUnaryOperator(String s){
