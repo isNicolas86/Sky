@@ -1,15 +1,21 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 import java.lang.ref.Reference;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller {
-    //MathExpression expression = new MathExpression();
+    private Validator validate;
 
     @FXML
     private TextArea textArea;
@@ -70,6 +76,29 @@ public class Controller {
     }
 
     public void onButtonEqualClicked(){
+        textArea.setWrapText(true);
+        validate = new Validator(textArea.getText());
+        if (validate.isFirstOpenPare()){
+            textArea.appendText("\nError: Check closed parenthesis");
+            return;
+        } else if(validate.isBinaryOpAside()){
+            textArea.appendText("\nError: Check binary operators");
+            return;
+        } else if(validate.unbalancedParentheses()){
+            textArea.appendText("\nError: Unbalanced parentheses");
+            return;
+        } else if(validate.foundBinaryOpertarAfterOpenedPara()) {
+            textArea.appendText("\nError: Check binary operators after parentheses");
+            return;
+        } else if(validate.isFirstBinaryOperator()){
+            textArea.appendText("\nError: Check binary operators");
+            return;
+        } else if (validate.isError()){
+            textArea.appendText("\nError");
+            return;
+        }
+
+
         Calculos calculos = new Calculos(textArea.getText());
         textArea.end();
         textArea.setText(textArea.getText() + '=');
@@ -77,6 +106,7 @@ public class Controller {
         double d = calculos.calculate();
         if ( d%1 == 0){
             equals = (int)d;
+
             textArea.appendText("\n➡  " + Integer.toString(equals));
         } else {
             textArea.appendText("\n➡  " + d);
@@ -209,5 +239,14 @@ public class Controller {
         textArea.requestFocus();
         textArea.insertText(textArea.getCaretPosition(), "||");
         textArea.positionCaret(textArea.getCaretPosition()-1);
+        textArea.replaceText(0,5,"Hi There");
+    }
+
+    public void exitItemSelected(){
+        Platform.exit();
+    }
+
+    public void aboutItemSelected(){
+
     }
 }

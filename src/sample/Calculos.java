@@ -26,7 +26,6 @@ public class Calculos {
         if(postfix==null){
             return 0;
         }
-        System.out.println("Process 2");
         for(int i =0; i<postfix.size(); i++){
             if(isNumeric(postfix.get(i))){
                 result = numStack.push(Double.parseDouble(postfix.get(i)));
@@ -96,6 +95,8 @@ public class Calculos {
     * Also check if the "-" or "+" are unary operators then add 0 as a second operand*/
     private ArrayList<String> extractEntities(String s){
         ArrayList<String> entity = new ArrayList<>();
+        s = s.replaceAll("[\\-][\\-]", "+");
+        s = s.replaceAll("[\\-][+]|[+][\\-]", "\\-");
         Pattern pattern = Pattern.compile("[0-9.]+|[+]|[x]|[-]|[÷]|[/]|[(]|[)]|[\\^]|[\\|]" +
                 "|[c][o][s]|[s][i][n]|[t][a][n]|[l][n]|[l][o][g]|[e]|[!]|[π]|[√]|[%]|[a][b][s]");
         Matcher m = pattern.matcher(s);
@@ -105,12 +106,12 @@ public class Calculos {
         entity.add(0, "(");
         entity.add(")");
         for (int i = 0; i < entity.size(); i++) {
+            //Replace "%" with divide by 100 "/100"
             if (entity.get(i).equals("%")) {
-                System.out.println("Percentage detected");
                 entity.set(i, "/");
                 entity.add(i+1, "100");
             }
-            //Conditional stat replacing "|" with "abs(" and ")" on the pattern of the adjacent elements
+            //Replace "|" with "abs(" and ")" on the pattern of the adjacent elements
             if (entity.get(i).equals("|")) {
                 if ( (entity.get(i - 1).equals("(")||!isNumeric(entity.get(i - 1))) && !entity.get(i-1).equals(")") ) {
                     entity.set(i, "abs");
@@ -126,6 +127,15 @@ public class Calculos {
                 }
             }
         }
+        //Add "x" between number and "(" if needed
+        for (int i=1; i<entity.size();i++){
+            if(!entity.get(i).equals("!")) { //If different of factorial
+                if ((entity.get(i).equals("(")||isUnaryOperator(entity.get(i))) && isNumeric(entity.get(i - 1))) {
+                    entity.add(i, "x");
+                }
+            }
+        }
+
         System.out.println("Entity: " + entity);
         return entity;
     }
@@ -147,13 +157,13 @@ public class Calculos {
     double result =0;
     switch (str) {
         case "sin":
-            result = Math.sin(x1);
+            result = Math.sin(Math.toRadians(x1));
             break;
         case "cos":
-            result = Math.cos(x1);
+            result = Math.cos(Math.toRadians(x1));
             break;
         case "tan":
-            result = Math.tan(x1);
+            result = Math.tan(Math.toRadians(x1));
             break;
         case "log":
             result = Math.log10(x1);
@@ -179,7 +189,6 @@ public class Calculos {
 
     return result;
     }
-
 
     private double calcBinaryOperator(double x2, double x1, char op){
         double result = 0;
@@ -243,7 +252,7 @@ public class Calculos {
         z=z+1; // n!=Gamma(n+1)
         double gamma = 1;
         int n = 1;
-        while(n<=100000) {
+        while(n<=200000) {
             gamma = gamma*Math.pow(1+(double)1/n, z) / (1 + z / n);
             //eulerApprox=eulerApprox*Math.pow( (double)(k+1)/k,n) * ((double)k/(n+k));
             n++;
@@ -251,5 +260,4 @@ public class Calculos {
         gamma = gamma/z;
         return gamma;
     }
-
 }
