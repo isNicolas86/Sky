@@ -239,7 +239,6 @@ public class Controller {
         textArea.requestFocus();
         textArea.insertText(textArea.getCaretPosition(), "||");
         textArea.positionCaret(textArea.getCaretPosition()-1);
-        textArea.replaceText(0,5,"Hi There");
     }
 
     public void exitItemSelected(){
