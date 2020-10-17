@@ -19,7 +19,7 @@ public class Validator {
     }
 
     public boolean isBinaryOpAside(){
-        Pattern pattern = Pattern.compile("[+x\\-÷/*][x\\÷/*]");
+        Pattern pattern = Pattern.compile("[+x\\-÷/*][x\\÷/*+\\-]");
         Matcher m = pattern.matcher(this.str);
         if (m.find()){
             return true;
@@ -58,12 +58,12 @@ public class Validator {
     }
 
     public boolean isError(){
-        Pattern pattern = Pattern.compile("[+x\\-÷/*]$|[!][1-9.]|[+x\\-÷/*][!]");
+        Pattern pattern = Pattern.compile("[+x\\-÷/*]$|[!][1-9.]|[+x\\-÷/*][!]|[√][\\D]|[(][)]" +
+                "|[\\^][x*÷/÷]");
         Matcher m = pattern.matcher(this.str);
         if (m.find()){
             return true;
         } else return false;
     }
-
 
 }

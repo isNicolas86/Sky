@@ -2,243 +2,233 @@ package sample;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
-import javafx.scene.Scene;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
-
-import java.lang.ref.Reference;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javafx.scene.control.TextField;
 
 public class Controller {
     private Validator validate;
 
     @FXML
+    private TextField textField;
+
+    @FXML
     private TextArea textArea;
 
+
+
     public void onButtonNineClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "9");
+        addCharToTextField("9");
     }
 
     public void onButtonEightClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "8");
+        addCharToTextField("8");
     }
 
     public void onButtonSevenClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "7");
+        addCharToTextField("7");
     }
 
     public void onButtonSixClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "6");
+        addCharToTextField("6");
     }
 
     public void onButtonFiveClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "5");
+        addCharToTextField("5");
     }
 
     public void onButtonFourClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "4");
+        addCharToTextField("4");
     }
 
     public void onButtonThreeClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "3");
+        addCharToTextField("3");
     }
 
     public void onButtonTwoClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "2");
+        addCharToTextField("2");
     }
 
     public void onButtonOneClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "1");
+        addCharToTextField("1");
     }
 
     public void onButtonZeroClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "0");
+        addCharToTextField("0");
     }
 
     public void onButtonDotClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), ".");
+        addCharToTextField(".");
     }
 
     public void onButtonEqualClicked(){
-        textArea.setWrapText(true);
-        validate = new Validator(textArea.getText());
+        textField.end();
+        if(shallIAddEqual(textField.getText())){
+            textField.appendText("=");
+        }
+        validate = new Validator(textField.getText());
         if (validate.isFirstOpenPare()){
-            textArea.appendText("\nError: Check closed parenthesis");
+            textArea.appendText("Syntax ERROR\n");
             return;
         } else if(validate.isBinaryOpAside()){
-            textArea.appendText("\nError: Check binary operators");
+            textArea.appendText("Syntax ERROR\n");
             return;
         } else if(validate.unbalancedParentheses()){
-            textArea.appendText("\nError: Unbalanced parentheses");
+            textArea.appendText("Syntax ERROR\n");
             return;
         } else if(validate.foundBinaryOpertarAfterOpenedPara()) {
-            textArea.appendText("\nError: Check binary operators after parentheses");
+            textArea.appendText("Syntax ERROR\n");
             return;
         } else if(validate.isFirstBinaryOperator()){
-            textArea.appendText("\nError: Check binary operators");
+            textArea.appendText("Syntax ERROR\n");
             return;
         } else if (validate.isError()){
-            textArea.appendText("\nError");
+            textArea.appendText("Syntax ERROR\n");
             return;
         }
-
-
-        Calculos calculos = new Calculos(textArea.getText());
-        textArea.end();
-        textArea.setText(textArea.getText() + '=');
-        int equals =0;
+        Calculos calculos = new Calculos(textField.getText());
+        long equals;
         double d = calculos.calculate();
-        if ( d%1 == 0){
-            equals = (int)d;
-
-            textArea.appendText("\n➡  " + Integer.toString(equals));
+        if (d%1 == 0 && (d < Long.MAX_VALUE && d > Long.MIN_VALUE)){
+            equals = (long)d;
+            textArea.setText("➡  " + equals + "\n");
         } else {
-            textArea.appendText("\n➡  " + d);
+            textArea.setText("➡  " + d + "\n");
        }
     }
 
     public void onButtonPlusClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "+");
+        if(isUnaryOp()){
+            addStrToTextFieldAndStepBackOne("(+)");
+        } else addCharToTextField("+");
     }
 
     public void onButtonMinusClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "-");
+        if(isUnaryOp()){
+            addStrToTextFieldAndStepBackOne("(-)");
+        } else addCharToTextField("-");
     }
 
     public void onButtonTimesClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "x");
+        addCharToTextField("x");
     }
 
-
     public void onButtonDivClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "÷");
+        addCharToTextField("÷");
     }
 
     public void onPercentageButtonClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "%");
+        addCharToTextField("%");
     }
 
     public void onSquareRootButtonClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "√");
+        addCharToTextField("√");
     }
 
     public void onPowTwoButtonClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "^2");
+        addCharToTextField("^2");
     }
 
     public void onPowThreeButtonClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "^3");
+        addCharToTextField("^3");
     }
 
     public void onButtonLeftParClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "(");
+        addCharToTextField("(");
     }
 
     public void onButtonRightParClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), ")");
+        addCharToTextField(")");
     }
 
     public void onButtonAcClicked(){
-        textArea.setText("");
+        textField.clear();
     }
 
     public void onButtonDelClicked(){
-        textArea.requestFocus();
-        textArea.deletePreviousChar();
+        textField.requestFocus();
+        textField.deletePreviousChar();
     }
     /*****************************************************************************/
     //Scientific Area Buttons
     public void onButtonMoveLeftClicked(){
-        textArea.requestFocus();
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        textField.requestFocus();
+        textField.positionCaret(textField.getCaretPosition()-1);
     }
 
     public void onButtonMoveRightClicked(){
-        textArea.requestFocus();
-        textArea.positionCaret(textArea.getCaretPosition()+1);
+        textField.requestFocus();
+        textField.positionCaret(textField.getCaretPosition()+1);
     }
 
     public void onButtonTanClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "tan()");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("tan()");
     }
 
     public void onButtonCosClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "cos()");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("cos()");
     }
 
     public void onButtonSinClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "sin()");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("sin()");
     }
 
     public void onButtonExpClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "e()");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("e()");
     }
 
     public void onButtonLogClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "log()");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("log()");
     }
 
     public void onButtonLnClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "ln()");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("ln()");
     }
 
     public void onButtonFactorialClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "!");
+        addCharToTextField("!");
     }
 
     public void onButtonPiClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "π");
+        addCharToTextField("π");
     }
 
     public void onButtonPowerClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "^");
+        addCharToTextField("^");
     }
 
     public void onAbsoluteButtonClicked(){
-        textArea.requestFocus();
-        textArea.insertText(textArea.getCaretPosition(), "||");
-        textArea.positionCaret(textArea.getCaretPosition()-1);
+        addStrToTextFieldAndStepBackOne("||");
+    }
+
+    public void addCharToTextField(String s){
+        textField.requestFocus();
+        textField.insertText(textField.getCaretPosition(), s);
+    }
+
+    public void addStrToTextFieldAndStepBackOne(String s){
+        textField.requestFocus();
+        textField.insertText(textField.getCaretPosition(), s);
+        textField.positionCaret(textField.getCaretPosition()-1);
+    }
+
+    public boolean isUnaryOp(){
+        char c = textField.getText().charAt(textField.getCaretPosition()-1);
+        String definedChars = "x*-+/÷^";
+        for (char cInStr: definedChars.toCharArray()){
+            if(c == cInStr){
+                return true;
+            }
+        } return false;
+    }
+
+    public boolean shallIAddEqual(String s){
+        if(s.contains("=")){
+            return false;
+        } else return true;
+    }
+
+    public void onKeyTyped(){
+       // ke
     }
 
     public void exitItemSelected(){
@@ -246,6 +236,6 @@ public class Controller {
     }
 
     public void aboutItemSelected(){
-
     }
+
 }

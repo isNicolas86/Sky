@@ -9,43 +9,43 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="375.0" style="-fx-background-color: linear-gradient(to bottom, darkblue, lightblue);" stylesheets="" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <TextArea fx:id="textArea" layoutX="17.0" layoutY="64.0" prefHeight="72.0" prefWidth="340.0">
+        <TextArea id="TextArea1" fx:id="textArea" editable="false" layoutX="18.0" layoutY="97.0" minHeight="30.0" prefHeight="60.0" prefWidth="340.0">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="18.0" />
             </font>
             <cursor>
                 <Cursor fx:constant="DEFAULT" />
             </cursor></TextArea>
-        <VBox alignment="CENTER" layoutX="18.0" layoutY="145.0" prefHeight="309.0" prefWidth="340.0">
+        <VBox alignment="CENTER" layoutX="18.0" layoutY="155.0" prefHeight="309.0" prefWidth="340.0">
             <children>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="17.0" prefHeight="37.0" prefWidth="148.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonFactorialClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="!" textFill="WHITE">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonFactorialClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="!" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="120.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonPiClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="π" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="120.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonPiClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="π" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="145.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonMoveLeftClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="&lt;-" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="145.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonMoveLeftClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="&lt;-" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="170.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonMoveRightClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="-&gt;" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="170.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonMoveRightClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="-&gt;" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="239.0" layoutY="18.0" mnemonicParsing="false" onAction="#onAbsoluteButtonClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="|x|" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="239.0" layoutY="18.0" mnemonicParsing="false" onAction="#onAbsoluteButtonClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="|x|" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="270.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonPowerClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="x^" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="270.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonPowerClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="x^" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
@@ -57,32 +57,32 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="172.0" prefHeight="37.0" prefWidth="148.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonTanClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="tan" textFill="WHITE">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonTanClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="tan" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="120.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonCosClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="cos" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="120.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonCosClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="cos" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="145.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonSinClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="sin" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="145.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonSinClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="sin" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="170.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonExpClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="e" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="170.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonExpClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="e" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="239.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonLogClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="log" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="239.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonLogClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="log" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="302.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonLnClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="ln" textFill="WHITE">
+                        <Button focusTraversable="false" layoutX="302.0" layoutY="18.0" mnemonicParsing="false" onAction="#onButtonLnClicked" prefHeight="15.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, black, grey);" text="ln" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
@@ -97,27 +97,27 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="37.0" prefWidth="148.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonSevenClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="7">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonSevenClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="7">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonEightClicked" prefHeight="30.0" prefWidth="50.0" text="8">
+                        <Button focusTraversable="false" layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonEightClicked" prefHeight="30.0" prefWidth="50.0" text="8">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonNineClicked" prefHeight="30.0" prefWidth="50.0" text="9">
+                        <Button focusTraversable="false" layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonNineClicked" prefHeight="30.0" prefWidth="50.0" text="9">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonPlusClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="+">
+                        <Button focusTraversable="false" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonPlusClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="+">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onAction="#onPercentageButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="\%">
+                        <Button focusTraversable="false" layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onAction="#onPercentageButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="\%">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -129,27 +129,27 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="62.0" prefHeight="37.0" prefWidth="148.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonFourClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="4">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonFourClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="4">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonFiveClicked" prefHeight="30.0" prefWidth="50.0" text="5">
+                        <Button focusTraversable="false" layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonFiveClicked" prefHeight="30.0" prefWidth="50.0" text="5">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonSixClicked" prefHeight="30.0" prefWidth="50.0" text="6">
+                        <Button focusTraversable="false" layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonSixClicked" prefHeight="30.0" prefWidth="50.0" text="6">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonMinusClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="-">
+                        <Button focusTraversable="false" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonMinusClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="-">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSquareRootButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="√">
+                        <Button focusTraversable="false" layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSquareRootButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="√">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -161,27 +161,27 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="37.0" prefWidth="148.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonOneClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="1">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonOneClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="1">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonTwoClicked" prefHeight="30.0" prefWidth="50.0" text="2">
+                        <Button focusTraversable="false" layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonTwoClicked" prefHeight="30.0" prefWidth="50.0" text="2">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonThreeClicked" prefHeight="30.0" prefWidth="50.0" text="3">
+                        <Button focusTraversable="false" layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonThreeClicked" prefHeight="30.0" prefWidth="50.0" text="3">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonTimesClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="x">
+                        <Button focusTraversable="false" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonTimesClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="x">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onAction="#onPowTwoButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="x^2">
+                        <Button focusTraversable="false" layoutX="155.0" layoutY="14.0" mnemonicParsing="false" onAction="#onPowTwoButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="x^2">
                             <font>
                                 <Font size="12.0" />
                             </font>
@@ -193,27 +193,27 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="81.0" prefHeight="37.0" prefWidth="148.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonDelClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: darkorange;" text="DEL">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonDelClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: darkorange;" text="DEL">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonZeroClicked" prefHeight="30.0" prefWidth="50.0" text="0">
+                        <Button focusTraversable="false" layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonZeroClicked" prefHeight="30.0" prefWidth="50.0" text="0">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonDotClicked" prefHeight="30.0" prefWidth="50.0" text=".">
+                        <Button focusTraversable="false" layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonDotClicked" prefHeight="30.0" prefWidth="50.0" text=".">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonDivClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="÷">
+                        <Button focusTraversable="false" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonDivClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="÷">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="192.0" layoutY="13.0" mnemonicParsing="false" onAction="#onPowThreeButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="x^3">
+                        <Button focusTraversable="false" layoutX="192.0" layoutY="13.0" mnemonicParsing="false" onAction="#onPowThreeButtonClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: lightgrey;" text="x^3">
                             <font>
                                 <Font size="12.0" />
                             </font>
@@ -225,22 +225,22 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0" prefHeight="35.0" prefWidth="253.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onButtonAcClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: darkred;" text="AC" textFill="WHITE">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#onButtonAcClicked" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: darkred;" text="AC" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Button>
-                        <Button layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonLeftParClicked" prefHeight="30.0" prefWidth="50.0" text="(">
+                        <Button focusTraversable="false" layoutX="69.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonLeftParClicked" prefHeight="30.0" prefWidth="50.0" text="(">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonRightParClicked" prefHeight="30.0" prefWidth="50.0" text=")">
+                        <Button focusTraversable="false" layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonRightParClicked" prefHeight="30.0" prefWidth="50.0" text=")">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonEqualClicked" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: lightgrey;" text="=">
+                        <Button focusTraversable="false" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonEqualClicked" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: lightgrey;" text="=">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -274,15 +274,22 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Exit" onAction="#exitItemSelected" />
+              <MenuItem mnemonicParsing="false" onAction="#exitItemSelected" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" onAction="#aboutItemSelected"/>
+              <MenuItem mnemonicParsing="false" onAction="#aboutItemSelected" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
+      <TextField fx:id="textField" layoutX="18.0" layoutY="63.0" prefHeight="30.0" prefWidth="340.0" style="-fx-background-color: linear-gradient(to bottom, lightgrey, white);">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></TextField>
     </children>
 </Pane>

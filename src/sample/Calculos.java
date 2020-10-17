@@ -97,7 +97,7 @@ public class Calculos {
         ArrayList<String> entity = new ArrayList<>();
         s = s.replaceAll("[\\-][\\-]", "+");
         s = s.replaceAll("[\\-][+]|[+][\\-]", "\\-");
-        Pattern pattern = Pattern.compile("[0-9.]+|[+]|[x]|[-]|[÷]|[/]|[(]|[)]|[\\^]|[\\|]" +
+        Pattern pattern = Pattern.compile("[0-9.]+|[+]|[x]|[-]|[÷]|[/]|[\\*]|[(]|[)]|[\\^]|[\\|]" +
                 "|[c][o][s]|[s][i][n]|[t][a][n]|[l][n]|[l][o][g]|[e]|[!]|[π]|[√]|[%]|[a][b][s]");
         Matcher m = pattern.matcher(s);
         while (m.find()) {
@@ -128,7 +128,8 @@ public class Calculos {
         //Add "x" between number and "(" if needed
         for (int i=1; i<entity.size();i++){
             if(!entity.get(i).equals("!")) { //If different of factorial
-                if ((entity.get(i).equals("(")||isUnaryOperator(entity.get(i))) && isNumeric(entity.get(i - 1))) {
+                if ( (isNumeric(entity.get(i - 1))) &&
+                        (entity.get(i).equals("(")||isUnaryOperator(entity.get(i))||entity.get(i).equals("π") ) ) {
                     entity.add(i, "x");
                 }
             }
@@ -184,7 +185,6 @@ public class Calculos {
             result = Math.abs(x1);
             break;
     }
-
     return result;
     }
 
@@ -231,10 +231,8 @@ public class Calculos {
     }
 
     private boolean shallAdd0(String str2, String str1){
-        if ( (str2.equals("-") || str2.equals("+")) && !isNumeric(str1)){
-            if (!str1.equals(")") && !str1.equals("!")){
-                return true;
-            }
+        if ( (str2.equals("-") || str2.equals("+")) && str1.equals("(")){
+            return true;
         }
         return false;
     }
@@ -259,7 +257,7 @@ public class Calculos {
         z=z+1; // n!=Gamma(n+1)
         double gamma = 1;
         int n = 1;
-        while(n<=200000) {
+        while(n<=500000) {
             gamma = gamma*Math.pow(1+(double)1/n, z) / (1 + z / n);
             //eulerApprox=eulerApprox*Math.pow( (double)(k+1)/k,n) * ((double)k/(n+k));
             n++;
